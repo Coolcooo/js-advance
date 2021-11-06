@@ -75,4 +75,11 @@ module.exports = class {
     return arr;
   }
 
+  forEach(fn, thisArg = fn) {
+    for (let i = 0; i < this.set.length; i += 1) {
+      fn.call(thisArg, this.set[i], this.set[i], this);
+    }
+  }
+
+
 }

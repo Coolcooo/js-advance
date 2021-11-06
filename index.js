@@ -75,6 +75,13 @@ class MySet {
     return arr;
   }
 
+  forEach(fn, thisArg = fn) {
+    for (let i = 0; i < this.set.length; i += 1) {
+      fn.call(thisArg, this.set[i], this.set[i], this);
+    }
+  }
+
+
 }
 
 const set = new MySet([4, 8, 15, 15, 16, 23, 42]);
@@ -127,3 +134,6 @@ console.log(set.has(data)); // false
 console.log(set === set.valueOf()) // true
 console.log(String(set)) // [object ^_^]
 console.log(Object.prototype.toString.call(set)) // [object ^_^]
+set.forEach(function (item) {
+  console.log(item.getValue.call(this)); // 42
+}, data)
