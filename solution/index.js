@@ -67,12 +67,10 @@ module.exports = class {
     return this.set.values();
   }
 
-  entries() {
-    const arr = [];
+  * entries() {
     for (const elem of this.set) {
-      arr.push([elem, elem]);
+      yield [elem, elem];
     }
-    return arr;
   }
 
   forEach(fn, thisArg = fn) {
